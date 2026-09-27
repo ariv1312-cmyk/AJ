@@ -1,0 +1,332 @@
+--- src/index.css (原始)
+@import "tailwindcss";
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(251, 191, 36, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(251, 191, 36, 0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-pulseRing {
+  animation: pulseRing 2s infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Tree connector animations */
+.tree-connector {
+  animation: drawLine 0.5s ease-out forwards;
+}
+
+@keyframes drawLine {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Card hover glow effect */
+.person-card:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+}
+
+/* Selection pulse animation */
+.selected-pulse {
+  animation: pulseRing 2s infinite;
+}
+
+/* Background pattern */
+body {
+  background-image: radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.08) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+
++++ src/index.css (修改后)
+@import "tailwindcss";
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(251, 191, 36, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(251, 191, 36, 0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-pulseRing {
+  animation: pulseRing 2s infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Tree connector animations */
+.tree-connector {
+  animation: drawLine 0.5s ease-out forwards;
+}
+
+@keyframes drawLine {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Card hover glow effect */
+.person-card:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+}
+
+/* Selection pulse animation */
+.selected-pulse {
+  animation: pulseRing 2s infinite;
+}
+
+/* Background pattern */
+body {
+  background-image: radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.08) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+/* Print styles */
+@media print {
+  @page {
+    margin: 0.5in;
+    size: landscape;
+  }
+
+  body {
+    background: white !important;
+    background-image: none !important;
+  }
+
+  /* Hide non-printable elements */
+  .print\:hidden,
+  header,
+  footer,
+  .fixed:not(.print\:block),
+  button,
+  .bg-white\/80,
+  .bg-white\/50 {
+    display: none !important;
+  }
+
+  /* Show print-only elements */
+  .print\:block {
+    display: block !important;
+  }
+
+  /* Reset layout for printing */
+  .min-h-screen {
+    min-height: auto !important;
+  }
+
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Style the tree for printing */
+  .bg-gradient-to-br {
+    background: white !important;
+  }
+
+  /* Ensure all content is visible */
+  * {
+    color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Remove shadows and effects */
+  .shadow-lg,
+  .shadow-xl,
+  .shadow-2xl,
+  .shadow-md,
+  .shadow-sm {
+    box-shadow: none !important;
+  }
+
+  /* Keep borders and colors */
+  .border-2 {
+    border-width: 2px !important;
+  }
+
+  /* Ensure text is black for better printing */
+  .text-gray-800,
+  .text-gray-700,
+  .text-gray-600 {
+    color: #000 !important;
+  }
+
+  /* Keep gender colors for identification */
+  .bg-blue-50,
+  .bg-pink-50,
+  .bg-purple-50 {
+    background-color: #f8f9fa !important;
+  }
+
+  /* Remove animations */
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Ensure proper page breaks */
+  .page-break-before {
+    page-break-before: always;
+  }
+
+  .page-break-after {
+    page-break-after: always;
+  }
+
+  .avoid-break {
+    page-break-inside: avoid;
+  }
+}
